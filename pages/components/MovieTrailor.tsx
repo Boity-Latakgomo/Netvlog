@@ -21,7 +21,7 @@ const MovieTrailer = () => {
             <video src={movie.trailer} />
             <video controls width="500px">
               <source src={movie.video} type="video/mp4" />
-              Sorry, your browser doesn't support videos.
+              
             </video>
             <p>Duration: {movie.duration}</p>
             <p>Starring: {movie.starring}</p>
