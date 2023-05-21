@@ -1,0 +1,28 @@
+.container {
+  margin-top: 50px;
+  padding-bottom: 40px;
+}
+
+.container h1 {
+  margin-left: 100px;
+  color: white;
+}
+
+.mostViewed {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 4px 100px;
+  justify-content: center;
+}
+
+.innerContainer {
+  display: flex;
+}
+
+.divider {
+  width: 2px;
+  height: 120px;
+  align-self: center;
+  background-color: purple;
+  margin: 10px 35px;
+}

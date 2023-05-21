@@ -49,12 +49,17 @@ const Admin = () => {
   };
 
   const navStyle = {
-    backgroundColor: 'purple',
+    backgroundColor: theme === 'light' ? 'purple' : 'darkpurple',
     padding: '16px',
     color: 'white',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
+  };
+  const linkStyle = {
+    textDecoration: 'none',
+    color: 'white',
+    marginRight: '16px',
   };
 
   const toggleSwitchStyle = {
@@ -79,12 +84,24 @@ const Admin = () => {
 
   return (
     <div>
+
       <nav style={navStyle}>
-        {/* Add your navigation links here */}
         <div style={toggleSwitchStyle} onClick={toggleTheme}>
           <div style={toggleButtonStyle}></div>
         </div>
       </nav>
+      <div>
+        <a href="/" style={linkStyle}>Home</a>
+        <a href="/rating" style={linkStyle}>Rating</a>
+        <a href="/favorite" style={linkStyle}>Favorite</a>
+      </div>
+      <div style={toggleSwitchStyle} onClick={toggleTheme}>
+        <div style={toggleButtonStyle}></div>
+      </div>
+    
+    {/* Rest of the component */}
+  
+
       <p>Admin</p>
       <div style={topVideoStyle}>
         <YouTube videoId={movieTrailers[3].trailerId} opts={opts} />

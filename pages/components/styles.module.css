@@ -1,11 +1,16 @@
+.light {
+  /* Light theme styles */
+  background-color: white;
+  color: black;
+}
 
-.dark-mode {
-    background-color: black;
-    color: white;
-  }
-  
-  .dark-mode nav {
-    /* Define styles for the navigation bar in dark mode */
-  }
-  
-  /* Add more styles as needed */
+.dark {
+  /* Dark theme styles */
+  background-color: black;
+  color: white;
+}
+
+.container {
+  background-color: #121415;
+  min-height: 1000px;
+}

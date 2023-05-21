@@ -1,0 +1,14 @@
+.container {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  min-height: 450px;
+}
+
+.image {
+  display: block;
+  width: 900px;
+  object-fit: cover;
+  border-radius: 10px;
+}
