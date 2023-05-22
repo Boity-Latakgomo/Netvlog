@@ -16,7 +16,7 @@ export const INITIAL_STATE: IMovieStateContext = { }
 
 //specifying the state 
 export interface IMovieStateContext {
-    readonly fetchMovies?: Array<IMovieDto>;//IMovieDto[]
+    readonly moviesFetched?: Array<IMovieDto>;//IMovieDto[]
 }
 
 //specifying the action

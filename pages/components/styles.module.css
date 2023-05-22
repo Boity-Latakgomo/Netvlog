@@ -11,6 +11,10 @@
 }
 
 .container {
+  box-sizing: border-box;
+  padding: 0;
+  margin: -10px;
+  scroll-behavior: smooth;
   background-color: #121415;
   min-height: 1000px;
 }

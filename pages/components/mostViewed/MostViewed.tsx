@@ -14,7 +14,7 @@ const MostViewed = ({
 }: mostViewedProps) => {
   return (
     <div className={styles.container}>
-      <h1>Most Viewed</h1>
+      <h2>Most Viewed</h2>
       <div className={styles.mostViewed}>
         {latestMovies.map((movie, index) => (
           <div className={styles.innerContainer}>

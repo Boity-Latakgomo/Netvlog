@@ -9,4 +9,4 @@ export enum MovieActionEnum {
 
 //must match the variable in interface state context (movieCreated)
 //we are creating an action here
-export const fetchMoviesRequestAction = createAction<IMovieStateContext, Array<IMovieDto>>(MovieActionEnum.fetchMoviesRequest, (fetchMovies) => ({fetchMovies}));
+export const fetchMoviesRequestAction = createAction<IMovieStateContext, Array<IMovieDto>>(MovieActionEnum.fetchMoviesRequest, (moviesFetched) => ({moviesFetched}));
