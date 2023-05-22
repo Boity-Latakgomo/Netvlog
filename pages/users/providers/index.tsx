@@ -23,7 +23,7 @@ import {
 import { message } from "antd";
 import { useMutate } from "restful-react";
 
-const UserProvider: FC<PropsWithChildren> = ({ children }) => {
+const UserProvider = ({ children }) => {
   const [state, dispatch] = useReducer(UserReducer, INITIAL_STATE);
 
   const loginUser = async (userLoginInfo: ILogin) => {

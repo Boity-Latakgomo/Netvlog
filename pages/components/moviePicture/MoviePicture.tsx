@@ -29,7 +29,6 @@ const MoviePicture = ({
       </div>
     );
   } else {
-    const moviewToShow = movie;
     return (
       <Link
         href={{

@@ -5,13 +5,25 @@ import Link from "next/link";
 const NavBar = () => {
   return (
     <div className={styles.container}>
-      <Link href="/trailer">
+      <Link
+        href=""
+        onClick={() => {
+          window.location.href = "/trailer";
+        }}
+      >
         <p>
           Net<span className={styles.vlogText}>Vlog</span>
         </p>
       </Link>
       <div className={styles.containerNav}>
-        <Link href="/trailer">Home</Link>
+        <Link
+          href=""
+          onClick={() => {
+            window.location.href = "/trailer";
+          }}
+        >
+          Home
+        </Link>
         <Link href="/newRelease">New Release</Link>
         <Link href="/genres">Genres</Link>
         <Link href="/popular">Popular</Link>

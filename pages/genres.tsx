@@ -59,7 +59,7 @@ const GenresPage = () => {
   return (
     <div className={styles.container}>
       <NavBar />
-      <GenreContent movies={filteredMovies} changeGenre={changeGenre}/>
+      <GenreContent genreSelected={genreSelected} movies={filteredMovies} changeGenre={changeGenre}/>
     </div>
   );
 };

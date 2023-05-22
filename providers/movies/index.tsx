@@ -20,6 +20,7 @@ const MovieProvider = ({ children }) => {
     const fetchMovies = async () => {
             getMoviesHttp();
     }
+    
     return (
         <MovieStateContext.Provider value={state}>
             <MovieActionContext.Provider
