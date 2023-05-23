@@ -36,12 +36,8 @@ const TrailorPreviewer = ({ movie }: trailorPreviewerProps) => {
             infiniteLoop
           >
             <img src="https://images.hellomagazine.com/horizon/landscape/4b644c0ec4ba-the-witcher-season-three-poster-henry-cavill.jpg" />
-            <img src="https://wallpapercave.com/wp/wp4957081.jpg" />
             <img src="https://images.hellomagazine.com/horizon/landscape/4b644c0ec4ba-the-witcher-season-three-poster-henry-cavill.jpg" />
-            <img src="https://wallpaperaccess.com/full/9140095.jpg" />
-            <img src="https://wallpapers.com/images/featured/2beglb8ddgy0ar2w.jpg" />
             <img src="https://images.hellomagazine.com/horizon/landscape/4b644c0ec4ba-the-witcher-season-three-poster-henry-cavill.jpg" />
-            <img src="https://c4.wallpaperflare.com/wallpaper/763/368/990/captain-america-the-winter-soldier-nick-fury-captain-america-black-widow-wallpaper-preview.jpg" />
           </Carousel>
         </div>
 

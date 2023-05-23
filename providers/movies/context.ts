@@ -7,6 +7,11 @@ export interface IMovieDto {
     duration: string,
     starring: string,
     genre: string,
+    views: string,
+    image: string,
+    video: string,
+    releaseDate: string,
+    trailer: string,
     id?: string,
     picture?:string,
 }

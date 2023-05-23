@@ -14,13 +14,14 @@ const MovieProvider = ({ children }) => {
     useEffect(()=>{
         if(data){
             dispatch(fetchMoviesRequestAction(data.result));
+            console.log('all movies::', data.result)
         }
     },[data])
     
     const fetchMovies = async () => {
             getMoviesHttp();
     }
-    
+
     return (
         <MovieStateContext.Provider value={state}>
             <MovieActionContext.Provider

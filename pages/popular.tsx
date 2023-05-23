@@ -8,6 +8,7 @@ const targetView = 30000;
 
 const PopularPage = () => {
   const popularMovies = movies.filter((movie) => movie.views >= targetView);
+  
   return (
     <div className={styles.container}>
       <NavBar />
