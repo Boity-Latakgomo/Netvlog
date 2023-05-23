@@ -60,7 +60,7 @@ const TrailerPage = () => {
 
   let initialMovieTrailer: movieProps | undefined;
 
-  const { fetchMovies } = useMovie();
+  const { fetchMovies,moviesFetched } = useMovie();
   const { data, refetch: retrieve } = useGet({
     path: "Movie/GetAll",
   });
@@ -78,8 +78,8 @@ const TrailerPage = () => {
       image: image.toString(),
       trailer: trailer.toString(),
       video: video.toString(),
-      views: parseInt(views.toString()),
-      releaseDate: new Date(releaseDate.toString()),
+      view: views.toString(),
+      releaseDate: releaseDate.toString(),
     };
   }
 
@@ -92,10 +92,17 @@ const TrailerPage = () => {
     setSelectedMovieTrailer(movie);
   };
 
-  const sortedMovies = movies.sort(
+  // const sortedMovies = movies.sort(
+  //   (a: movieProps, b: movieProps) =>
+  //     b.releaseDate.getTime() - a.releaseDate.getTime()
+  // );
+  const sortedMovies = moviesFetched.sort(
     (a: movieProps, b: movieProps) =>
-      b.releaseDate.getTime() - a.releaseDate.getTime()
+      new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime()
   );
+  
+
+
   const latestMovies = sortedMovies.slice(0, 5);
 
   return (

@@ -6,6 +6,6 @@ export interface movieProps {
     image: string,
     trailer: string,
     video: string,
-    views: number, // not added on back-end
-    releaseDate: Date, // not added on back-end
+    view: string, // not added on back-end
+    releaseDate: string, // not added on back-end
 }

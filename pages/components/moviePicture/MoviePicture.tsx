@@ -41,8 +41,8 @@ const MoviePicture = ({
             image: movie.image,
             trailer: movie.trailer,
             video: movie.video,
-            views: movie.views,
-            releaseDate: movie.releaseDate.getDate(),
+            views: movie.view,
+            releaseDate: movie.releaseDate,
           },
         }}
         className={styles.container}

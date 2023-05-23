@@ -1,5 +1,6 @@
 
 import { createContext } from 'react';
+import { movieProps } from '../../pages/interfaces/movie';
 
 //dto 
 export interface IMovieDto {
@@ -21,7 +22,7 @@ export const INITIAL_STATE: IMovieStateContext = { }
 
 //specifying the state 
 export interface IMovieStateContext {
-    readonly moviesFetched?: Array<IMovieDto>;//IMovieDto[]
+    readonly moviesFetched?: Array<movieProps>;//IMovieDto[]
 }
 
 //specifying the action
