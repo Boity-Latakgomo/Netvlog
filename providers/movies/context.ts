@@ -3,26 +3,14 @@ import { createContext } from 'react';
 import { movieProps } from '../../pages/interfaces/movie';
 
 //dto 
-export interface IMovieDto {
-    title: string,
-    duration: string,
-    starring: string,
-    genre: string,
-    views: string,
-    image: string,
-    video: string,
-    releaseDate: string,
-    trailer: string,
-    id?: string,
-    picture?:string,
-}
+
 
 //state at first load time
 export const INITIAL_STATE: IMovieStateContext = { }
 
 //specifying the state 
 export interface IMovieStateContext {
-    readonly moviesFetched?: Array<movieProps>;//IMovieDto[]
+    readonly moviesFetched?: movieProps[];//IMovieDto[]
 }
 
 //specifying the action

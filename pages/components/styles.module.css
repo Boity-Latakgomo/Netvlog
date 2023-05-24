@@ -17,4 +17,5 @@
   scroll-behavior: smooth;
   background-color: #121415;
   min-height: 1000px;
+  position: relative;
 }

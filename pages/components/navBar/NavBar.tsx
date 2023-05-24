@@ -2,7 +2,11 @@ import React from "react";
 import styles from "./NavBar.module.css";
 import Link from "next/link";
 
-const NavBar = () => {
+interface INavBar {
+  popUpVisibility?: (value: boolean) => void;
+}
+
+const NavBar = ({ popUpVisibility }: INavBar) => {
   return (
     <div className={styles.container}>
       <Link
@@ -24,9 +28,19 @@ const NavBar = () => {
         >
           Home
         </Link>
+
         <Link href="/newRelease">New Release</Link>
         <Link href="/genres">Genres</Link>
         <Link href="/popular">Popular</Link>
+      </div>
+      <div
+        className={styles.imageContainer}
+        onClick={() => popUpVisibility(true)}
+      >
+        <img
+          src="https://icon-library.com/images/logout-icon-png/logout-icon-png-3.jpg"
+          alt="logout"
+        />
       </div>
     </div>
   );

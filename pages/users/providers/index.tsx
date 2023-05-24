@@ -48,46 +48,40 @@ const UserProvider = ({ children }) => {
     });
   };
 
-//   const createUser = async (userRegInfo: IUser) => {
-//     const token = localStorage.getItem("token");
-//     await fetch("https://localhost:44311/api/services/app/Person/Create", {
-//       method: "POST",
-//       cache: "no-cache",
-//       headers: {
-//         "Content-Type": "application/json",
-//         Authorization: `Bearer  ${token}`,
-//       },
-//       body: JSON.stringify(userRegInfo),
-//     }).then((res) => {
-//       res.json().then((data) => {
-//         dispatch(createUserRequestAction(userRegInfo));
-//         message.success("user registration successfull");
-//         window.location.href = "/";
-//       });
-//     });
-//   };
+  //   const createUser = async (userRegInfo: IUser) => {
+  //     const token = localStorage.getItem("token");
+  //     await fetch("https://localhost:44311/api/services/app/Person/Create", {
+  //       method: "POST",
+  //       cache: "no-cache",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization: `Bearer  ${token}`,
+  //       },
+  //       body: JSON.stringify(userRegInfo),
+  //     }).then((res) => {
+  //       res.json().then((data) => {
+  //         dispatch(createUserRequestAction(userRegInfo));
+  //         message.success("user registration successfull");
+  //         window.location.href = "/";
+  //       });
+  //     });
+  //   };
 
+  const { mutate: createUserMutate, error: createUserError } = useMutate({
+    verb: "POST",
+    path: "https://localhost:44311/api/services/app/Person/Create",
+  });
 
-const { mutate: createUserMutate, error: createUserError } = useMutate({
-    verb: 'POST',
-    path: 'https://localhost:44311/api/services/app/Person/Create',
-})
-
-const createUser = (userRegInfo: IUser) => {
-
-    createUserMutate(userRegInfo).then(res => {
-        if (res.success) {
-            dispatch(createUserRequestAction(userRegInfo));
-            message.success("User registration successful")
-        }else if(createUserError){
-            message.error(createUserError)
-        }
+  const createUser = (userRegInfo: IUser) => {
+    createUserMutate(userRegInfo).then((res) => {
+      if (res.success) {
+        dispatch(createUserRequestAction(userRegInfo));
+        message.success("User registration successful");
+      } else if (createUserError) {
+        message.error(createUserError);
+      }
     });
-};
-
-
-
-
+  };
 
   const getUserDetails = async (id: number) => {
     const token = localStorage.getItem("token");

@@ -6,10 +6,12 @@ import styles from "./components/styles.module.css";
 import { useGet } from "restful-react";
 import TrailorPreviewer from "./components/trailorPreviewer/TrailorPreviewer";
 import MostViewed from "./components/mostViewed/MostViewed";
-import { movies } from "../utils/demoMovieData";
+
+// import { movies } from "../utils/demoMovieData";
 import { useRouter } from "next/router";
 import { useMovie } from "../providers/movies";
 import { Result } from "antd";
+import LogoutPopUp from "./components/logoutPopUp/LogoutPopUp";
 
 //   const { data } = useGet({
 
@@ -60,7 +62,7 @@ const TrailerPage = () => {
 
   let initialMovieTrailer: movieProps | undefined;
 
-  const { fetchMovies,moviesFetched } = useMovie();
+  const { fetchMovies, moviesFetched } = useMovie();
   const { data, refetch: retrieve } = useGet({
     path: "Movie/GetAll",
   });
@@ -86,30 +88,34 @@ const TrailerPage = () => {
   const [selectedMovieTrailer, setSelectedMovieTrailer] = useState<
     movieProps | undefined
   >(initialMovieTrailer);
+  const [showLogoutPopUp, setShowLogoutPopUp] = useState(false);
 
   // Methods
   const setMovieTrailerSelected = (movie: movieProps) => {
     setSelectedMovieTrailer(movie);
   };
 
+  const popUpVisibility = (value: boolean) => setShowLogoutPopUp(value);
+
   // const sortedMovies = movies.sort(
   //   (a: movieProps, b: movieProps) =>
   //     b.releaseDate.getTime() - a.releaseDate.getTime()
   // );
-  const sortedMovies = moviesFetched.sort(
-    (a: movieProps, b: movieProps) =>
-      new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime()
-  );
-  
+  const sortedMovies = moviesFetched?.sort((a: movieProps, b: movieProps) => {
+    const dateA = new Date(a.releaseDate.replace(/ /g, ""));
+    const dateB = new Date(b.releaseDate.replace(/ /g, ""));
+    return dateA.getTime() - dateB.getTime();
+  });
 
-
-  const latestMovies = sortedMovies.slice(0, 5);
+  const latestMovies = sortedMovies?.slice(0, 5);
 
   return (
     <div className={styles.container}>
-      <NavBar />
+      <NavBar popUpVisibility={popUpVisibility} />
       {/* <TrailorPreviewer trailer={movieTrailers[4].trailer} /> */}
+      {showLogoutPopUp && <LogoutPopUp popUpVisibility={popUpVisibility} />}
       <TrailorPreviewer movie={selectedMovieTrailer} />
+
       <MostViewed
         latestMovies={latestMovies}
         setMovieTrailerSelected={setMovieTrailerSelected}

@@ -18,7 +18,7 @@ const MovieProvider = ({ children }) => {
         }
     },[data])
     
-    const fetchMovies = async () => {
+    const fetchMovies = () => {
             getMoviesHttp();
     }
 

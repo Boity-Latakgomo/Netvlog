@@ -16,7 +16,7 @@ const MostViewed = ({
     <div className={styles.container}>
       <h2>Most Viewed</h2>
       <div className={styles.mostViewed}>
-        {latestMovies.map((movie, index) => (
+        {latestMovies?.map((movie, index) => (
           <div className={styles.innerContainer}>
             <div className={styles.divider} />
             <MoviePicture

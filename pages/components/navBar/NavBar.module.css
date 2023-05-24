@@ -66,3 +66,11 @@
 .containerNav a:hover {
   color: grey;
 }
+
+.imageContainer {
+  display: flex;
+  justify-self: flex-end;
+  cursor: pointer;
+  overflow: hidden;
+  height: 25px;
+}
