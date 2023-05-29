@@ -6,11 +6,10 @@ import styles from "./components/styles.module.css";
 import { useGet } from "restful-react";
 import TrailorPreviewer from "./components/trailorPreviewer/TrailorPreviewer";
 import MostViewed from "./components/mostViewed/MostViewed";
-
+import { RateMovieComponent } from "./components/movieRating/movieRating";
 // import { movies } from "../utils/demoMovieData";
 import { useRouter } from "next/router";
 import { useMovie } from "../providers/movies";
-import { Result } from "antd";
 import LogoutPopUp from "./components/logoutPopUp/LogoutPopUp";
 
 //   const { data } = useGet({
@@ -57,6 +56,7 @@ const TrailerPage = () => {
     trailer,
     video,
     views,
+    rating,
     releaseDate,
   } = router.query;
 
@@ -71,6 +71,8 @@ const TrailerPage = () => {
     fetchMovies();
   }, []);
 
+  console.log("All movies: ", moviesFetched);
+
   if (title) {
     initialMovieTrailer = {
       title: title.toString(),
@@ -81,9 +83,11 @@ const TrailerPage = () => {
       trailer: trailer.toString(),
       video: video.toString(),
       view: views.toString(),
+      rating: 0,
       releaseDate: releaseDate.toString(),
     };
   }
+
 
   const [selectedMovieTrailer, setSelectedMovieTrailer] = useState<
     movieProps | undefined

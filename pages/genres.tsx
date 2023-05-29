@@ -8,9 +8,12 @@ import { movieProps } from "./interfaces/movie";
 import { useMovie } from "../providers/movies";
 import LogoutPopUp from "./components/logoutPopUp/LogoutPopUp";
 
+//movieProps[] is an array of objects that adhere to the movieProps interface.This array stores filtered movies
 let filteredMovies: movieProps[];
 
 const GenresPage = () => {
+  //The Genre type<Genre> is expected to be an enumeration or an object that defines different genres.
+  //The initial value for genreSelected is set to Genre.All
   const [genreSelected, SetGenreSelected] = useState<Genre>(Genre.All);
   const { fetchMovies, moviesFetched } = useMovie();
 
@@ -21,7 +24,7 @@ const GenresPage = () => {
   useEffect(() => {
     fetchMovies();
   }, []);
-
+console.log("mv::",moviesFetched)
   if (!moviesFetched) {
     return <div>loading...!!!</div>;
   }

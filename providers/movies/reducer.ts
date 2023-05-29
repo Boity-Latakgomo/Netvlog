@@ -10,6 +10,12 @@ export function MovieReducer(incomingState: IMovieStateContext, action: ReduxAct
         case MovieActionEnum.fetchMoviesRequest:
             return {...incomingState,...payload};
 
+            case MovieActionEnum.userRatedMovieRequest:
+                return{
+                    ...incomingState,
+                    ...payload,
+                }
+
         default:
             return incomingState;
     }

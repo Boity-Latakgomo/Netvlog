@@ -66,8 +66,8 @@ export default function AuthenticationPage(props: any) {
             setEmailUsername("");
             setLoginPassword("");
             props.authHandler(true);
-            localStorage.setItem("token", result.result.accessToken);
-            console.log("login worked ", result.result.accessToken);
+             localStorage.setItem("token", result.result.accessToken);
+            // console.log("login worked ", result.result.accessToken);
           })
           .catch((e) => console.log("login got error: ", e.data.error.message));
       } else {
@@ -113,7 +113,7 @@ export default function AuthenticationPage(props: any) {
       <div className={styles.formBox}>
         {isSignIn ? (
           <form id="signInForm" className={styles.form}>
-            <h1 id="title">Sign In</h1>
+            <h1 id={styles.title}>Sign In</h1>
             <div className={styles.signUpInputGroup}>
               <div className={styles.inputField}>
                 <input
@@ -151,20 +151,20 @@ export default function AuthenticationPage(props: any) {
             <div className={styles.btnField}>
               <button
                 type="button"
-                id="signupBtn"
+                id={styles.signupBtn}
                 className={styles.disable}
                 onClick={signUpClicked}
               >
                 Sign up
               </button>
-              <button type="button" id="signinBtn" onClick={handleLogin}>
+              <button type="button" id={styles.signinBtn} onClick={handleLogin}>
                 Sign in
               </button>
             </div>
           </form>
         ) : (
-          <form id="signUpForm" className={styles.form}>
-            <h1 id="title">Sign Up</h1>
+          <form id={styles.signUpForm} className={styles.form}>
+            <h1 id={styles.title}>Sign Up</h1>
             <div className={styles.inputGroup}>
               <div className={styles.inputField}>
                 <input
@@ -229,14 +229,14 @@ export default function AuthenticationPage(props: any) {
                 />
               </div>
             ) : null}
-            <div className="btn-field">
-              <button type="button" id="signupBtn" onClick={signUpClicked}>
+            <div className={styles.btnField}>
+              <button type="button" id={styles.signupBtn} onClick={signUpClicked}>
                 Sign up
               </button>
               <button
                 type="button"
-                id="signinBtn"
-                className="disable"
+                id={styles.signinBtn}
+                className={styles.disable}
                 onClick={signInClicked}
               >
                 Sign in
@@ -245,23 +245,23 @@ export default function AuthenticationPage(props: any) {
           </form>
         )}
       </div>
-      <div id="alertPopupContainer">
-        <div className="alertPopup">
+      <div id={styles.alertPopupContainer}>
+        <div className={styles.alertPopup}>
           <h2>Alert!</h2>
-          <div className="divider"></div>
-          <p className="alertpopUpText">Please fill all the fields</p>
-          <div className="pressableTextContainer">
-            <p id="pressableText">OK</p>
+          <div className={styles.divider}></div>
+          <p className={styles.alertpopUpText}>Please fill all the fields</p>
+          <div className={styles.pressableTextContainer}>
+            <p id={styles.pressableText}>OK</p>
           </div>
         </div>
       </div>
-      <div id="successAlertPopupContainer">
-        <div className="alertPopup">
+      <div id={styles.successAlertPopupContainer}>
+        <div className={styles.alertPopup}>
           <h2>Success!</h2>
-          <div className="divider"></div>
-          <p className="alertpopUpText" id="SuccessText"></p>
-          <div className="pressableTextContainer">
-            <p id="successPressableText">OK</p>
+          <div className={styles.divider}></div>
+          <p className={styles.alertpopUpText} id={styles.SuccessText}></p>
+          <div className={styles.pressableTextContainer}>
+            <p id={styles.successPressableText}>OK</p>
           </div>
         </div>
       </div>

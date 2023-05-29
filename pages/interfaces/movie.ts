@@ -6,6 +6,8 @@ export interface movieProps {
     image: string,
     trailer: string,
     video: string,
+    rating: number,
     view: string, 
     releaseDate: string, 
+    id?:string,
 }

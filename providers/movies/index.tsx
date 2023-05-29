@@ -1,8 +1,9 @@
 import { useContext, useEffect, useReducer } from "react";
 import { MovieReducer } from "./reducer";
 import { INITIAL_STATE, MovieActionContext, MovieStateContext } from "./context";
-import { useGet } from "restful-react";
-import { fetchMoviesRequestAction } from "./action";
+import { useGet,useMutate } from "restful-react";
+import { fetchMoviesRequestAction, userRatedMovieRequestAction } from "./action";
+import { movieProps } from "../../pages/interfaces/movie";
 
 const MovieProvider = ({ children }) => {
     const [state, dispatch] = useReducer(MovieReducer, INITIAL_STATE);
@@ -21,6 +22,20 @@ const MovieProvider = ({ children }) => {
     const fetchMovies = () => {
             getMoviesHttp();
     }
+
+  //Rating
+    const {mutate: rateHttp} = useMutate({
+        verb: 'POST',
+        path: `Movie/AddRating`,
+      });
+
+    const rateMovie = async (payload: movieProps) => {
+        dispatch(userRatedMovieRequestAction(payload));
+        rateHttp(payload)
+      };
+
+
+
 
     return (
         <MovieStateContext.Provider value={state}>
